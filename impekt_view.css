@@ -1,0 +1,837 @@
+﻿/*////////////////BASICS/////////////////////*/
+body {
+    background: #eee;
+    font-family: 'Raleway', sans-serif;
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    line-height: 1.3;
+    overflow-x: hidden;
+}
+
+.graph-container {
+    box-sizing: border-box;
+    padding: 0 30px 30px;
+    min-width: 400px;
+    max-width: 800px;
+    width: 100%;
+    background: #fff;
+    position: relative;
+    margin-top: 0px;
+    text-align: center;
+    margin: 0 auto;
+    padding: 10px 25px;
+    margin-top: 0px;
+    color: #333;
+}
+
+.graph-title {
+    text-align: center;
+    padding: 10px 0 10px 0px;
+}
+
+.graph-UI-resource {
+    text-align: center;
+    border-top: 1px solid #bbb;
+    margin-top: 50px;
+    padding-top: 30px;
+}
+
+h1, h2, h3, h4 {
+    font-weight: normal;
+}
+
+h1 {
+    font-size: 160%;
+}
+
+h2 {
+    font-size: 120%;
+    text-align: left;
+}
+
+h3 {
+    font-size: 90%;
+    text-align: left;
+}
+
+h4 {
+    font-size: 90%;
+    text-align: left;
+}
+/*//////////////// Buttons /////////////////////*/
+.graph-graph {
+    /*margin: 0 -60px;*/
+    position: relative;
+}
+
+header {
+    background: #fff;
+    color: #333;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    transition: top 0.2s ease-in-out;
+    width: 100%;
+    line-height: 60px;
+    font-size: 110%;
+    z-index: 1000;
+}
+
+
+
+#header-placeholder {
+    height: 60px;
+    width: 100%;
+    position: relative;
+    background: #eee;
+    top: 0px;
+    border-bottom: #567ff8 solid 1px;
+}
+
+.nav-up {
+    top: -60px;
+}
+
+#header-logo svg {
+    float: left;
+    height: 50px;
+    margin-top: 6px;
+}
+
+#header-logo {
+    overflow: hidden;
+    height: 60px;
+}
+
+#header-title {
+    float: left;
+    margin-left: -10px;
+}
+
+#header-menu {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    right: 0;
+    padding: 0 30px;
+    cursor: pointer;
+}
+
+footer {
+    /* 	height: 60px; */
+    /* 	margin-top:30px; */
+    background: #567ff8;
+    color: white;
+    line-height: 60px;
+    text-align: center;
+}
+
+#footer-help {
+    padding: 0 40px;
+    display: inline-block;
+}
+
+#footer-contact {
+    padding: 0 40px;
+    display: inline-block;
+}
+/*////////////////UI/////////////////////*/
+
+.graph-UI {
+    width: 100%;
+    margin: 20px 0;
+    padding: 0 0 30px 0;
+    box-sizing: border-box;
+    transition: 1s;
+    overflow: hidden;
+}
+
+.graph-UI-title {
+    text-align: center;
+    width: 100%;
+    padding: 10px 0px;
+    position: relative;
+    font-size: 120%;
+    line-height: 1.7;
+}
+
+.fold:hover {
+    transition: 0.2s;
+    color: rgba(52, 104, 255, 0.8);
+}
+
+.fold {
+    transition: 2s;
+    cursor: pointer;
+}
+
+
+
+.hToggle {
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    /*     margin-top: -90px; */
+    position: relative;
+    transition: 1s;
+    opacity: 0.5;
+    float: right;
+    border-bottom: 8px solid black;
+}
+
+.graph-UI-title-sub {
+    text-align: center;
+    margin: 0 0 50px 0;
+}
+
+
+.graph-UI-info {
+    /* 	background:#F7DC6F; */
+    background: #9bc8ff;
+    overflow: hidden;
+    /*margin: 20px; /* remove when collaped*/
+    padding: 0 10px 0;
+    box-sizing: border-box;
+    z-index: 2;
+    transition: 0.8s;
+    border-radius: 4px;
+    text-align: center;
+    position: relative;
+}
+
+.graph-UI-info-groups {
+    font-size: 78%;
+    position: relative;
+    right: 10px;
+    opacity: 0.5;
+    text-align: right;
+    line-height: 26px;
+    margin: -30px 0 0 0;
+}
+/*////////// Button ////////////*/ \
+
+.graph-buttons-switch:hover .graph-buttons-switch-selection,
+.graph-buttons-toggle:hover span:after {
+    background: rgba(239, 250, 255,1);
+}
+
+.graph-buttons-slider {
+    position: relative;
+    vertical-align: top;
+    display: inline-block;
+    margin: 0px 20px 35px;
+    width: 160px;
+    height: 26px;
+    border-radius: 3px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+    -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px rgba(255, 255, 255, 0.1);
+}
+
+    .graph-buttons-slider a {
+        text-decoration: none;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        line-height: 26px;
+        top: 30px;
+        left: 0;
+        font-size: 13px;
+        color: rgba(0, 0, 0, 1);
+        /* 	overflow:hidden; */
+    }
+
+    .graph-buttons-slider input {
+        z-index: 1;
+        position: relative;
+        -webkit-appearance: none;
+        appearance: none;
+        width: 100%;
+        height: 22px;
+        background: rgba(0, 0, 0, 0);
+        outline: none;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        padding: 0 4px 0 1px;
+        cursor: pointer;
+    }
+
+        .graph-buttons-slider input::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 22px;
+            height: 22px;
+            background: rgba(255, 255, 255,0.6);
+            cursor: pointer;
+            border-radius: 2px;
+            -webkit-box-shadow: inset 0 1px rgba(255, 255, 255,0.6), 0 0 2px rgba(0, 0, 0, 0.3);
+            box-shadow: inset 0 1px rgba(255, 255, 255,0.6), 0 0 2px rgba(0, 0, 0, 0.3);
+            transition: background 0.3s;
+        }
+
+        .graph-buttons-slider input::-moz-range-thumb {
+            width: 22px;
+            height: 22px;
+            background: rgba(255, 255, 255,0.6);
+            cursor: pointer;
+            border-radius: 2px;
+            -webkit-box-shadow: inset 0 1px rgba(255, 255, 255,0.6), 0 0 2px rgba(0, 0, 0, 0.3);
+            box-shadow: inset 0 1px rgba(255, 255, 255,0.6), 0 0 2px rgba(0, 0, 0, 0.3);
+            transition: background 0.3s;
+        }
+
+
+
+.graph-buttons-toggle label {
+    width: 100%;
+    height: 26px;
+    display: block;
+    cursor: pointer;
+    position: relative;
+    text-align: left;
+    padding-left: 40px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+.graph-buttons-toggle input {
+    position: relative;
+    z-index: -9999;
+}
+
+.graph-buttons-toggle span {
+    width: 22px;
+    height: 22px;
+    display: block;
+    background: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.graph-buttons-toggle input + span:after {
+    content: '';
+    width: 18px;
+    height: 4px;
+    display: block;
+    background: rgba(255, 255, 255, 1);
+    opacity: 0.7;
+    position: absolute;
+    bottom: 2px;
+    left: 2px;
+    border-radius: 2px;
+    transition: 0.2s;
+}
+
+.graph-buttons-toggle input:checked + span:after {
+    height: 18px;
+    opacity: 1;
+    -webkit-box-shadow: inset 0 1px rgba(255, 255, 255,0.6), 0 0 2px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 1px rgba(255, 255, 255,0.6), 0 0 2px rgba(0, 0, 0, 0.3);
+}
+
+
+.graph-buttons-slider input:hover::-moz-range-thumb {
+    background: rgba(239, 250, 255,1);
+}
+
+.graph-buttons-slider input:hover::-webkit-slider-thumb {
+    background: rgba(239, 250, 255,1);
+}
+
+.settings-button {
+    cursor: pointer;
+    z-index: 3;
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+    background: #fff;
+    border-radius: 50%;
+    right: -20px;
+    margin-top: 35px;
+}
+
+    .settings-button input {
+        display: none;
+    }
+
+    .settings-button div {
+        position: absolute;
+        height: 38%;
+        display: block;
+        background: #333;
+        width: 38%;
+        left: 32%;
+        top: 32%;
+        border-radius: 50%;
+        transition: 0.2s ease-in-out;
+        transition-delay: 0.3s;
+    }
+
+        .settings-button div:after {
+            content: '';
+            position: absolute;
+            height: 50%;
+            display: block;
+            background: #fff;
+            width: 50%;
+            left: 25%;
+            top: 25%;
+            border-radius: 50%;
+        }
+
+    .settings-button input:checked ~ div {
+        height: 0%;
+        width: 0%;
+        left: 50%;
+        top: 50%;
+    }
+
+    .settings-button span {
+        position: absolute;
+        height: 10%;
+        display: block;
+        background: #333;
+        width: 50%;
+        left: 25%;
+        top: 45%;
+        border-radius: 2px;
+        transition: 0.5s;
+    }
+
+        .settings-button span:nth-child(3) {
+            transform: rotate(45deg);
+        }
+
+        .settings-button span:nth-child(4) {
+            transform: rotate(90deg);
+        }
+
+        .settings-button span:nth-child(5) {
+            transform: rotate(-45deg);
+        }
+
+    .settings-button input:checked ~ span {
+        height: 6%;
+        top: 48%;
+    }
+
+        .settings-button input:checked ~ span:nth-child(2) {
+            /* 	width:0;
+	left:50%; */
+            transform: rotate(45deg);
+        }
+
+        .settings-button input:checked ~ span:nth-child(4) {
+            /* 	width:0;
+	left:50%; */
+            transform: rotate(135deg);
+        }
+
+
+
+/*////////// Settings per row ////////////*/
+
+.graph-UI-info-error {
+    color: red;
+    font-size: 90%;
+}
+
+.graph-UI-info table {
+    padding: 20px 0;
+    display: inline-block;
+    font-size: 80%;
+    text-align: left;
+    border-collapse: collapse;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+	supported by Chrome and Opera */
+}
+
+    .graph-UI-info table td {
+        padding: 5px 20px 5px 0;
+    }
+
+.graph-UI-info th {
+    font-weight: inherit;
+    color: rgba(0,0,0,0.7);
+}
+
+.graph-UI-table-tr:hover,
+.graph-UI-table-tr:focus {
+    background: rgba(0,0,0,0.2);
+    border: none;
+    outline: none;
+    overflow: hidden;
+    transition: 0.2s;
+    transition: 0.5s;
+    cursor: move;
+}
+
+.graph-UI-info-color {
+    height: 14px;
+    width: 26px;
+    display: block;
+}
+
+
+.graph-UI-info-copy span {
+    background: #fff;
+    border-radius: 2px;
+    padding: 6px 6px;
+    z-index: 99;
+    pointer-events: none;
+    -webkit-box-shadow: inset 0 1px rgba(255, 255, 255,0.6), 0 0 2px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 1px rgba(255, 255, 255,0.6), 0 0 2px rgba(0, 0, 0, 0.3);
+}
+
+.graph-UI-info-copy span {
+    display: none;
+}
+
+#graph-group-main {
+    /* 	margin: 50px 0 -13px 0; */
+    position: relative;
+}
+
+
+
+
+
+.graph-UI-info-expl,
+.graph-UI-info-descr {
+    text-align: justify;
+    font-size: 95%;
+    margin: 20px 0 10px;
+}
+
+.info-tag {
+    margin: 0 2px;
+    /* 	cursor:pointer; */
+    text-decoration: underline;
+}
+
+.graph-expl p {
+    text-align: left;
+    font-size: 90%;
+}
+
+.graph-container h4 {
+    margin: 20px 0 5px 0;
+    font-weight: 600;
+}
+
+.graph-expl-included {
+    text-align: left;
+    font-size: 90%;
+}
+
+    .graph-expl-included a {
+        text-decoration: underline;
+        margin: 0 14px 0 0;
+        opacity: 0.8;
+        color: black;
+        transition: 0.2s;
+        display: inline-block;
+    }
+
+        .graph-expl-included a:hover {
+            opacity: 0.9;
+        }
+
+
+/*////////////// INPUT /////////////////*/
+.graph-UI-input-block {
+    padding: 30px 0;
+    position: relative;
+}
+
+.graph-UI-input {
+    position: relative;
+    /* 	margin: 0 50px 20px 0; */
+    width: 100%;
+    min-height: 60px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    background: #fff;
+    caret-color: #000;
+    padding: 7px 12px;
+    box-sizing: border-box;
+    border-radius: 3px;
+    font-size: 16px;
+    line-height: 18px;
+    outline: none;
+    display: inline-block;
+}
+
+.graph-UI-input-edit {
+    position: relative;
+    box-sizing: border-box;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.2s;
+    padding: 7px;
+    font-size: 80%;
+    opacity: 0.5;
+    width: 100%;
+    float: left;
+    border: none;
+    background: none;
+    outline: none;
+    padding: 7px 12px;
+    border-radius: 3px;
+}
+
+    .graph-UI-input-edit:before {
+        position: relative;
+        content: 'edit';
+        dispay: block;
+    }
+
+    .graph-UI-input-edit:focus {
+        background: #fff;
+        padding: 14px;
+        font-size: 90%;
+        opacity: 1;
+        /* 	border:1px  rgba(0, 0, 0, 0.2); */
+        border-left-style: solid;
+        border-left-width: 6px;
+    }
+/* .graph-UI-input-edit-button{
+position: absolute;
+right:0;
+top:0;
+height: 50px;
+width: 40px;
+background:#fff;
+margin: 1px;
+box-sizing: border-box;
+} */
+/* .graph-UI-input-edit-input{
+height: 39px;
+background: none;
+display: block;
+position: relative;
+outline: none;
+border: none;
+width: 100%;
+padding: 6px;
+border: 1px solid;
+text-align: center;
+margin: 7px;
+box-sizing: border-box;
+background: rgba(255,255,255,1); 
+} */
+
+
+
+.graph-UI-form {
+    text-align: left;
+}
+
+.graph-UI-info-form {
+    position: relative;
+    display: inline-block;
+    padding: 0px 6px;
+    margin: 0 6px;
+    font-size: 16px;
+    line-height: 18px;
+    /* 	float:left; */
+}
+
+
+.graph-UI-input-break {
+    display: block;
+    height: 0px;
+}
+
+.graph-UI-input .div-small {
+    width: 14px;
+    height: 41px;
+    display: inline-block;
+    position: relative;
+    background: rgba(0,0,0,0);
+    transition: .2s;
+    border-radius: 2px;
+    background: rgba(0,0,0,0.04);
+    margin: 0px 0 -16px;
+}
+
+    .graph-UI-input .div-small:hover,
+    .graph-UI-input .div-small:focus,
+    .graph-UI-input .div-small:active {
+        width: 80px;
+        margin: 0px 0 -16px;
+        padding: 0;
+        background: rgba(0,0,0,0.1);
+    }
+
+.graph-UI-input p {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+
+
+
+
+.graph-UI-info-error hr,
+.graph-UI-info-form hr,
+.graph-UI-input hr {
+    display: inline-block;
+    overflow: visible;
+    position: relative;
+    border: none;
+    height: 18px;
+    vertical-align: middle;
+}
+
+.graph-UI-info-error .graph-UI-input-groups:before,
+.graph-UI-info-form .graph-UI-input-groups:before,
+.graph-UI-input .graph-UI-input-groups:before {
+    font-size: 36px;
+}
+/*.graph-UI-info-error .graph-UI-input-tags:before,
+.graph-UI-info-form .graph-UI-input-tags:before,*/
+.graph-UI-input .graph-UI-input-tags:before {
+    padding: 0px;
+    border-radius: 2px;
+    padding: 6px 0;
+    top: -6px;
+    z-index: 30;
+    white-space: nowrap;
+    -webkit-box-shadow: inset 0 1px rgba(255, 255, 255,0.6), 0 0 2px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 1px rgba(255, 255, 255,0.6), 0 0 2px rgba(0, 0, 0, 0.3);
+}
+
+.graph-UI-info-error hr:before,
+.graph-UI-info-form hr:before,
+.graph-UI-input hr:before {
+    content: attr(data-alias);
+    text-align: right;
+    left: 0px;
+    position: absolute;
+}
+
+.graph-UI-input > * {
+    margin: 10px 5px;
+}
+
+.graph-buttons-group-info {
+    background: rgba(0,0,0,0.5);
+    width: 100%;
+    padding: 10px 30px;
+    box-sizing: border-box;
+    margin: 30px 0;
+    font-size: 85%;
+    text-align: left;
+    border-radius: 6px;
+    transition: 1s;
+}
+
+.graph-buttons-group-info-pointer {
+    border-bottom: 22px solid #000;
+    height: 0;
+    width: 0;
+    border-left: 16px solid transparent;
+    border-right: 16px solid transparent;
+    opacity: 0.5;
+    position: absolute;
+    /*      margin-left: -60px; */
+    margin-top: 8px;
+    transition: 1s;
+}
+
+@media only screen and (min-width: 800px) {
+    .graph-container {
+        margin: 60px auto 120px;
+        min-width: 400px;
+        max-width: 1200px;
+        width: 90%;
+        padding: 10px 60px;
+        border-radius: 10px;
+    }
+
+    #header-placeholder {
+        border-bottom: none;
+    }
+
+        #header-placeholder:before {
+            content: '';
+            width: 100vw;
+            height: 63px;
+            display: block;
+            /* 		background: #157a6e; */
+            background: #567ff8;
+            -webkit-clip-path: polygon(0% 0%, 100% 0, 100% 100%, 66% 89%, 0% 100%);
+            clip-path: polygon(0% 0%, 100% 0, 100% 100%, 60% 78%, 0% 100%);
+        }
+
+    header {
+        background: rgba(255, 255, 255, 0.8);
+        background: #fff;
+        -webkit-clip-path: polygon(0% 0%, 100% 0, 100% 100%, 66% 89%, 0% 100%);
+        clip-path: polygon(0% 0%, 100% 0, 100% 100%, 61% 78%, 0% 100%);
+        /* 		border-bottom: rgb(30, 179, 161) solid 2px; */
+    }
+
+    .graph-container:before {
+        content: '';
+        height: 30px;
+        width: 100%;
+        background: #fff;
+        position: absolute;
+        margin-top: -40px;
+        left: 0px;
+        -webkit-clip-path: polygon(2% 100%, 62% 57%, 98% 100%);
+        clip-path: polygon(2% 100%, 62% 57%, 98% 100%);
+    }
+
+    .graph-container:after {
+        content: '';
+        height: 60px;
+        width: 100%;
+        background: #fff;
+        position: absolute;
+        margin-top: -10px;
+        left: 0px;
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 62% 78%, 0% 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 62% 78%, 0% 100%);
+        border-radius: 10px;
+    }
+
+    .graph-title {
+        padding: 70px 0 10px 0px;
+    }
+
+    footer:before {
+        content: '';
+        height: 30px;
+        width: 100%;
+        background: #567ff8;
+        position: absolute;
+        margin-top: -30px;
+        left: 0px;
+        -webkit-clip-path: polygon(0% 100%, 62% 57%, 100% 100%);
+        clip-path: polygon(0% 100%, 62% 57%, 100% 100%);
+        border-bottom: #567ff8 1px solid;
+    }
+}
+
+.stop-scrolling {
+    height: 100%;
+    overflow: hidden;
+}
