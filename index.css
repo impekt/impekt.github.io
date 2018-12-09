@@ -1,4 +1,4 @@
-﻿/*////////////////Basic Impekt/////////////////////*/
+﻿/*//////////////// Basic Vievwer /////////////////////*/
 body {
     background: #eee;
     font-family: 'Raleway', sans-serif;
@@ -9,7 +9,7 @@ body {
     overflow-x: hidden;
 }
 
-.graph-container {
+#page {
     box-sizing: border-box;
     padding: 0 30px 30px;
     min-width: 400px;
@@ -23,6 +23,15 @@ body {
     padding: 10px 25px;
     margin-top: 0px;
     color: #333;
+    min-height: 40vh;
+}
+
+article {
+    margin: 10px 30px;
+    text-align: left;
+    color: #444;
+    line-height: 1.5;
+    text-align: justify;
 }
 
 .graph-title {
@@ -59,25 +68,32 @@ h4 {
     font-size: 90%;
     text-align: left;
 }
-/*//////////////// Buttons /////////////////////*/
-.graph-graph {
-    /*margin: 0 -60px;*/
-    position: relative;
+
+.stop-scrolling {
+    height: 100%;
+    overflow: hidden;
 }
+/*//////////////// Header /////////////////////*/
+
 
 header {
+    min-width: 400px;
     background: #fff;
     color: #333;
-    height: 60px;
     position: fixed;
     top: 0;
-    transition: top 0.2s ease-in-out;
+    transition: top 2s ease-in-out;
     width: 100%;
     line-height: 60px;
     font-size: 110%;
     z-index: 1000;
+    display: flex;
+    justify-content: space-between;
 }
 
+    header.header-menu-open {
+        flex-flow: row wrap;
+    }
 
 
 #header-placeholder {
@@ -89,52 +105,126 @@ header {
     border-bottom: #567ff8 solid 1px;
 }
 
-.nav-up {
-    top: -60px;
-}
-
-#header-logo svg {
-    float: left;
-    height: 50px;
-    margin-top: 6px;
-}
-
 #header-logo {
     overflow: hidden;
     height: 60px;
-}
-
-#header-title {
-    float: left;
-    margin-left: -10px;
-}
-
-#header-menu {
-    position: absolute;
-    height: 100%;
-    top: 0;
-    right: 0;
-    padding: 0 30px;
+    flex: 1 0 50%;
+    text-align: left;
+    box-sizing: border-box;
     cursor: pointer;
 }
 
+    #header-logo svg {
+        height: 50px;
+        margin: 5px 0 0 -84px;
+        display: inline-block;
+        position: absolute;
+        ;
+    }
+
+#header-title {
+    padding: 0 0 0 80px;
+}
+
+#header-menu-button {
+    flex: 1 0 50%;
+    text-align: right;
+    box-sizing: border-box;
+    display: block;
+}
+
+    #header-menu-button a {
+        height: 60px;
+        top: 0;
+        padding: 0 40px;
+        flex: 1 0 50%;
+        text-align: right;
+        box-sizing: border-box;
+    }
+
+.header-menu-open .header-menu {
+    display: block;
+}
+
+.header-menu {
+    display: none;
+    order: 1;
+    position: relative;
+    list-style: none;
+    transition: 2s;
+    margin: 0;
+    top: 0;
+    width: 100%;
+    padding: 0;
+}
+
+header a {
+    padding: 10px;
+    color: black;
+    transition: 0.5s;
+    cursor: pointer;
+    display: block;
+    text-decoration: none;
+}
+
+.header-menu a {
+    text-align: center;
+    border-bottom: 2px solid rgba(185, 185, 185, 0.3);
+}
+
+header a:hover {
+    background: #eee;
+    color: #567ff8;
+}
+
+
+/*//////////////// Footer /////////////////////*/
 footer {
-    /* 	height: 60px; */
-    /* 	margin-top:30px; */
+    min-width: 400px;
     background: #567ff8;
     color: white;
-    line-height: 60px;
+    line-height: 40px;
     text-align: center;
+    display: flex;
+    flex-flow: column nowrap;
 }
 
-#footer-help {
-    padding: 0 40px;
-    display: inline-block;
+    footer span {
+        white-space: nowrap;
+    }
+
+#footer-line {
+    padding: 40px 0 0;
 }
+
+#footer-counties {
+    padding: 10px 0;
+    font-size: 82%;
+    line-height: 57px;
+}
+
+    #footer-counties svg {
+        height: 14px;
+        width: 40px;
+        position: relative;
+        top: 2px;
+    }
+
+#footer-logo {
+    padding: 10px 40px 10px 0;
+    font-size: 82%;
+}
+
+    #footer-logo svg {
+        height: 34px;
+        width: 70px;
+        position: relative;
+        top: 12px;
+    }
 
 #footer-contact {
-    padding: 0 40px;
-    display: inline-block;
+    padding: 20px;
+    background: #476de1;
 }
 /*////////////////UI/////////////////////*/
 
@@ -164,6 +254,11 @@ footer {
 .fold {
     transition: 2s;
     cursor: pointer;
+}
+
+.graph-graph {
+    /*margin: 0 -60px;*/
+    position: relative;
 }
 
 
@@ -530,7 +625,7 @@ footer {
     font-size: 90%;
 }
 
-.graph-container h4 {
+#page h4 {
     margin: 20px 0 5px 0;
     font-weight: 600;
 }
@@ -756,7 +851,9 @@ background: rgba(255,255,255,1);
 }
 
 @media only screen and (min-width: 800px) {
-    .graph-container {
+
+    /* BASICS*/
+    #page {
         margin: 60px auto 120px;
         min-width: 400px;
         max-width: 1200px;
@@ -764,6 +861,43 @@ background: rgba(255,255,255,1);
         padding: 10px 60px;
         border-radius: 10px;
     }
+        #page:before {
+            content: '';
+            height: 30px;
+            width: 100%;
+            background: #fff;
+            position: absolute;
+            margin-top: -40px;
+            left: 0px;
+            -webkit-clip-path: polygon(2% 100%, 62% 57%, 98% 100%);
+            clip-path: polygon(2% 100%, 62% 57%, 98% 100%);
+        }
+
+        #page:after {
+            content: '';
+            height: 60px;
+            width: 100%;
+            background: #fff;
+            position: absolute;
+            bottom: -40px;
+            left: 0px;
+            -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 62% 78%, 0% 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 62% 78%, 0% 100%);
+            border-radius: 10px;
+        }
+
+    .graph-title {
+        padding: 70px 0 10px 0px;
+    }
+    article {
+        /* 		 margin: 10px 30px; */
+        /* 		 text-align: left; */
+        /* 		 color: #444; */
+        /* 		 line-height: 1.5; */
+        text-align: justify;
+        -webkit-columns: 400px 2;
+    }
+    /* HEADER */
 
     #header-placeholder {
         border-bottom: none;
@@ -774,48 +908,67 @@ background: rgba(255,255,255,1);
             width: 100vw;
             height: 63px;
             display: block;
-            /* 		background: #157a6e; */
             background: #567ff8;
-            -webkit-clip-path: polygon(0% 0%, 100% 0, 100% 100%, 66% 89%, 0% 100%);
+            transition: 0.4s;
+            -webkit-clip-path: polygon(0% 0%, 100% 0, 100% 100%, 60% 89%, 0% 100%);
             clip-path: polygon(0% 0%, 100% 0, 100% 100%, 60% 78%, 0% 100%);
         }
+
+    .header-menu-open + #header-placeholder:before {
+        -webkit-clip-path: polygon(0% 0%, 100% 0, 100% 100%, 60% 100%, 0% 100%);
+        clip-path: polygon(0% 0%, 100% 0, 100% 100%, 60% 100%, 0% 100%);
+    }
 
     header {
         background: rgba(255, 255, 255, 0.8);
         background: #fff;
+        transition: 0.4s;
         -webkit-clip-path: polygon(0% 0%, 100% 0, 100% 100%, 66% 89%, 0% 100%);
         clip-path: polygon(0% 0%, 100% 0, 100% 100%, 61% 78%, 0% 100%);
-        /* 		border-bottom: rgb(30, 179, 161) solid 2px; */
-    }
-
-    .graph-container:before {
-        content: '';
-        height: 30px;
-        width: 100%;
-        background: #fff;
-        position: absolute;
-        margin-top: -40px;
-        left: 0px;
-        -webkit-clip-path: polygon(2% 100%, 62% 57%, 98% 100%);
-        clip-path: polygon(2% 100%, 62% 57%, 98% 100%);
-    }
-
-    .graph-container:after {
-        content: '';
         height: 60px;
-        width: 100%;
-        background: #fff;
-        position: absolute;
-        margin-top: -10px;
-        left: 0px;
-        -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 62% 78%, 0% 100%);
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 62% 78%, 0% 100%);
-        border-radius: 10px;
     }
 
-    .graph-title {
-        padding: 70px 0 10px 0px;
+        header.header-menu-open {
+            flex-flow: row nowrap;
+            -webkit-clip-path: polygon(0% 0%, 100% 0, 61% 100%, 100% 100%, 0% 100%);
+            clip-path: polygon(0% 0%, 100% 0, 100% 100%, 61% 100%, 0% 100%);
+        }
+
+    .header-menu {
+        order: 0;
+        flex: 10 0 50%;
+        flex-flow: row nowrap;
+        justify-content: flex-end;
+        display: flex;
     }
+
+    #header-logo {
+        flex: 1 0 200px;
+    }
+
+    #header-menu-button {
+        flex: 1 0 90px;
+    }
+
+    .header-menu li {
+        max-width: 0;
+        overflow: hidden;
+        transition: 0.6s;
+    }
+
+    .header-menu-open .header-menu li {
+        max-width: 30vw;
+    }
+
+    .header-menu-open .header-menu {
+        display: flex;
+    }
+
+    header a {
+        padding: 0 20px;
+    }
+
+    /* FOOTER */
 
     footer:before {
         content: '';
@@ -829,9 +982,31 @@ background: rgba(255,255,255,1);
         clip-path: polygon(0% 100%, 62% 57%, 100% 100%);
         border-bottom: #567ff8 1px solid;
     }
+
+
+
+    footer {
+        flex-flow: row wrap;
+        justify-content: space-evenly;
+        justify-content: center;
+    }
+
+    #footer-line {
+        flex: 1 0 100%;
+    }
+
+    #footer-counties {
+        /* 			flex: 1 auto; */
+    }
+
+
+    #footer-logo {
+        /* 			flex: 1 auto; */
+    }
+
+    #footer-contact {
+        flex: 1 0 100%;
+    }
 }
 
-.stop-scrolling {
-    height: 100%;
-    overflow: hidden;
-}
+
