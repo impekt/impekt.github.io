@@ -27,12 +27,32 @@ body {
 }
 
 article {
-    margin: 10px 30px;
+    margin: 10px 0;
     text-align: left;
     color: #444;
     line-height: 1.5;
     text-align: justify;
+    display:flex;
+    flex-flow:row nowrap;
 }
+.img {
+    flex: 1 0 30%;
+    background: #e6e6e6;
+    width: 300px;
+    display: block;
+    height: 160px;
+}
+.img-right{
+    padding-left:130px;
+    box-sizing:border-box;
+}
+
+article p {
+    flex: 1 0 70%;
+    margin: 0;
+}
+
+
 
 .graph-title {
     text-align: center;
@@ -858,7 +878,7 @@ background: rgba(255,255,255,1);
         min-width: 400px;
         max-width: 1200px;
         width: 90%;
-        padding: 10px 60px;
+        padding: 10px 120px;
         border-radius: 10px;
     }
         #page:before {
@@ -879,11 +899,12 @@ background: rgba(255,255,255,1);
             width: 100%;
             background: #fff;
             position: absolute;
-            bottom: -40px;
+            bottom: -50px;
             left: 0px;
             -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 62% 78%, 0% 100%);
             clip-path: polygon(0 0, 100% 0, 100% 100%, 62% 78%, 0% 100%);
-            border-radius: 10px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
         }
 
     .graph-title {
